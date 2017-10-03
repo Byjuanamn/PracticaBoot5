@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9209871F8438660001D2AB /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9209861F8438660001D2AB /* OnBoarding.storyboard */; };
+		5B9209891F8439E30001D2AB /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9209881F8439E30001D2AB /* OnBoardingViewController.swift */; };
 		5BE4EAC31F842141005036DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BE4EAC21F84213A005036DE /* GoogleService-Info.plist */; };
 		5D5B04B79D9E7D673AE6A38D /* libPods-PracticaBoot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F74495F50EB85A1DF47BE1C0 /* libPods-PracticaBoot.a */; };
 		5D931CE61E83EEEA005051E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D931CE51E83EEEA005051E9 /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		2635E234360D457610905930 /* Pods-PracticaBoot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticaBoot.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticaBoot/Pods-PracticaBoot.release.xcconfig"; sourceTree = "<group>"; };
+		5B9209861F8438660001D2AB /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		5B9209881F8439E30001D2AB /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		5BE4EAC21F84213A005036DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D931CE21E83EEEA005051E9 /* PracticaBoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticaBoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D931CE51E83EEEA005051E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				5D931D001E83F5D1005051E9 /* MainTimeLine.swift */,
 				5D931D081E8414BB005051E9 /* All users */,
 				5D931D091E8414CA005051E9 /* Auth Users */,
+				5B9209881F8439E30001D2AB /* OnBoardingViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				5D931CEE1E83EEEA005051E9 /* LaunchScreen.storyboard */,
 				5D931CFC1E83F110005051E9 /* TimeLine.storyboard */,
+				5B9209861F8438660001D2AB /* OnBoarding.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 				5BE4EAC31F842141005036DE /* GoogleService-Info.plist in Resources */,
 				5D931CF01E83EEEA005051E9 /* LaunchScreen.storyboard in Resources */,
 				5D931CED1E83EEEA005051E9 /* Assets.xcassets in Resources */,
+				5B9209871F8438660001D2AB /* OnBoarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +287,7 @@
 				5D931D051E83F773005051E9 /* AuthorPostList.swift in Sources */,
 				5D931CE61E83EEEA005051E9 /* AppDelegate.swift in Sources */,
 				5D931D031E83F67C005051E9 /* PostReview.swift in Sources */,
+				5B9209891F8439E30001D2AB /* OnBoardingViewController.swift in Sources */,
 				5D931D071E83F7BA005051E9 /* NewPostController.swift in Sources */,
 				5D931D011E83F5D1005051E9 /* MainTimeLine.swift in Sources */,
 			);
