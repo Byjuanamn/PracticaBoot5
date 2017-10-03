@@ -13,17 +13,27 @@ class OnBoardingViewController: UIViewController {
 
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTtx: UITextField!
+    
+    var handler: AuthStateDidChangeListenerHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        handler = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+            if user != nil {
+                print("Usuario creado -> \(String(describing: user?.uid))")
+//                self.performSegue(withIdentifier: "GotoMain", sender: nil)
+            }
+        }
+        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handler!)
+    }
+
 
     private func createAccount() {
         Auth.auth().createUser(withEmail: emailTxt.text!,
@@ -35,6 +45,13 @@ class OnBoardingViewController: UIViewController {
                                 
                                 if user != nil {
                                     print("Usuario creado -> \(String(describing: user?.email))")
+                                    // validar el mail del nuevo usuario
+                                    
+                                    user?.sendEmailVerification(completion: { (error) in
+                                        if let error = error {
+                                            print(error.localizedDescription)
+                                        }
+                                    })
                                 }
                                 
         }
