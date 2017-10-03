@@ -68,6 +68,15 @@
                                     <action selector="logoutAction:" destination="KgX-Xt-cI7" eventType="touchUpInside" id="wTX-h0-q68"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2K-yO-GoM">
+                                <rect key="frame" x="24" y="456" width="335" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.87870214384482814" blue="0.50736108640952127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Reset Password"/>
+                                <connections>
+                                    <action selector="resetPwdAction:" destination="KgX-Xt-cI7" eventType="touchUpInside" id="Cfx-BO-b2f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.73333333329999995" green="0.89411764709999997" blue="0.93725490199999995" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>

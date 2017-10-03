@@ -18,23 +18,44 @@ class OnBoardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        handler = Auth.auth().addStateDidChangeListener { (auth, user) in
-            
-            if user != nil {
-                print("Usuario creado -> \(String(describing: user?.uid))")
-//                self.performSegue(withIdentifier: "GotoMain", sender: nil)
-            }
-        }
         
+        if self.isUserLogin() {
+            // saltar al siguiente viewController
+//            self.nextViewControllerSegue()
+            
+        } else {
+            self.osbserverUserActivity()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        Auth.auth().removeStateDidChangeListener(handler!)
+        if handler != nil {
+            Auth.auth().removeStateDidChangeListener(handler!)
+        }
     }
 
-
+    private func nextViewControllerSegue() {
+        self.performSegue(withIdentifier: "GotoMain", sender: nil)
+    }
+    
+    private func osbserverUserActivity() {
+        handler = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+            if user != nil {
+                print("Usuario creado -> \(String(describing: user?.uid))")
+            }
+        }
+    }
+    private func isUserLogin() -> Bool {
+        
+        if let user = Auth.auth().currentUser {
+            return true
+        }
+        return false
+    }
+    
+    
     private func createAccount() {
         Auth.auth().createUser(withEmail: emailTxt.text!,
                                password: passwordTtx.text!) { (user, error) in
@@ -65,7 +86,7 @@ class OnBoardingViewController: UIViewController {
             }
             
             if user != nil {
-                self.performSegue(withIdentifier: "GotoMain", sender: nil)
+                self.nextViewControllerSegue()
             }
         }
     }
@@ -74,6 +95,19 @@ class OnBoardingViewController: UIViewController {
         try! Auth.auth().signOut()
     }
     
+    private func resetUserPassword() {
+        
+        if self.isUserLogin() {
+            let user = Auth.auth().currentUser
+            Auth.auth().sendPasswordReset(withEmail: (user?.email)!, completion: { (error) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                }
+            })
+            
+            
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -83,6 +117,9 @@ class OnBoardingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func resetPwdAction(_ sender: Any) {
+        self.resetUserPassword()
+    }
     @IBAction func createNewAccountAction(_ sender: Any) {
         self.createAccount()
     }
