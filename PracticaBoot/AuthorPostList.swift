@@ -43,6 +43,22 @@ class AuthorPostList: UITableViewController {
 
         self.refreshControl?.addTarget(self, action: #selector(hadleRefresh(_:)), for: UIControlEvents.valueChanged)
         
+    
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadAllPosts()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        postsRefence.removeAllObservers()
+    }
+
+    private func loadAllPosts() {
         postsRefence.queryLimited(toFirst: 10).observe(.value) { (snapShot) in
             var items: [Posts] = []
             
@@ -53,20 +69,9 @@ class AuthorPostList: UITableViewController {
             
             self.model = items
             self.tableView.reloadData()
-            
         }
-        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
+
     
     @objc func hadleRefresh(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
