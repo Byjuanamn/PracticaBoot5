@@ -7,24 +7,66 @@
 //
 
 import UIKit
+import Firebase
+
+struct Posts {
+    
+    let title : String
+    let description : String
+    var postRef : DatabaseReference?
+    
+    init(title: String, description: String) {
+        self.title = title
+        self.description = description
+        self.postRef = nil
+    }
+    
+    init?(snapShot: DataSnapshot) {
+        guard let item = snapShot.value as? [String:Any] else { return nil }
+        self.title = item["title"] as! String
+        self.description = item["description"] as! String
+        self.postRef = snapShot.ref
+    }
+}
+
 
 class AuthorPostList: UITableViewController {
 
     let cellIdentifier = "POSTAUTOR"
     
-    var model = ["test1", "test2"]
+    var model:  [Posts] = []
+    
+    let postsRefence = Database.database().reference(withPath:"posts")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         self.refreshControl?.addTarget(self, action: #selector(hadleRefresh(_:)), for: UIControlEvents.valueChanged)
+        
+        postsRefence.queryLimited(toFirst: 10).observe(.value) { (snapShot) in
+            var items: [Posts] = []
+            
+            for item in snapShot.children {
+                let post = Posts(snapShot: item as! DataSnapshot)
+                items.append(post!)
+            }
+            
+            self.model = items
+            self.tableView.reloadData()
+            
+        }
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     
     @objc func hadleRefresh(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
@@ -48,7 +90,8 @@ class AuthorPostList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = model[indexPath.row]
+        let post = model[indexPath.row]
+        cell.textLabel?.text = post.title
     
         return cell
     }

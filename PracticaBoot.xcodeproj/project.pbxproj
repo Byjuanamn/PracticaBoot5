@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BE4EAC31F842141005036DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BE4EAC21F84213A005036DE /* GoogleService-Info.plist */; };
 		5D5B04B79D9E7D673AE6A38D /* libPods-PracticaBoot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F74495F50EB85A1DF47BE1C0 /* libPods-PracticaBoot.a */; };
 		5D931CE61E83EEEA005051E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D931CE51E83EEEA005051E9 /* AppDelegate.swift */; };
 		5D931CED1E83EEEA005051E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D931CEC1E83EEEA005051E9 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		2635E234360D457610905930 /* Pods-PracticaBoot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticaBoot.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticaBoot/Pods-PracticaBoot.release.xcconfig"; sourceTree = "<group>"; };
+		5BE4EAC21F84213A005036DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D931CE21E83EEEA005051E9 /* PracticaBoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticaBoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D931CE51E83EEEA005051E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D931CEC1E83EEEA005051E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 		5D931CD91E83EEEA005051E9 = {
 			isa = PBXGroup;
 			children = (
+				5BE4EAC21F84213A005036DE /* GoogleService-Info.plist */,
 				5D931CE41E83EEEA005051E9 /* PracticaBoot */,
 				5D931CE31E83EEEA005051E9 /* Products */,
 				9A1D497D468F7374529C8E38 /* Pods */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D931CFD1E83F110005051E9 /* TimeLine.storyboard in Resources */,
+				5BE4EAC31F842141005036DE /* GoogleService-Info.plist in Resources */,
 				5D931CF01E83EEEA005051E9 /* LaunchScreen.storyboard in Resources */,
 				5D931CED1E83EEEA005051E9 /* Assets.xcassets in Resources */,
 			);

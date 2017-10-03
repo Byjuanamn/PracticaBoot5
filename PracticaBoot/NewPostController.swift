@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -20,7 +22,7 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
             imagePost.image = imageCaptured
         }
     }
-    
+    let postsReference = Database.database().reference(withPath: "posts")
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,8 +42,23 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
 
     @IBAction func savePostInCloud(_ sender: Any) {
-        // preparado para implementar codigo que persita en el cloud 
+        // preparado para implementar codigo que persita en el cloud
+        let newPost: [String : Any] = ["title" : titlePostTxt.text, "description" : textPostTxt.text]
+        
+        let newPostFb = postsReference.childByAutoId()
+        
+        newPostFb.setValue(newPost)
+        
     }
+    
+    @IBAction func newPostInFB(_ sender: Any) {
+        let newPost: [String : Any] = ["title" : titlePostTxt.text, "description" : textPostTxt.text]
+        
+        let newPostFb = postsReference.childByAutoId()
+        
+        newPostFb.setValue(newPost)
+    }
+    
     /*
     // MARK: - Navigation
 
