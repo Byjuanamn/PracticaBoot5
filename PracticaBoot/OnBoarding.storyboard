@@ -54,12 +54,30 @@
                                     <action selector="createNewAccountAction:" destination="KgX-Xt-cI7" eventType="touchUpInside" id="IME-9Q-Soe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2m-5h-W3j">
+                                <rect key="frame" x="20" y="371" width="335" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="KgX-Xt-cI7" eventType="touchUpInside" id="Vk4-tX-KaH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agv-43-CYT">
+                                <rect key="frame" x="20" y="418" width="335" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="KgX-Xt-cI7" eventType="touchUpInside" id="wTX-h0-q68"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.73333333329999995" green="0.89411764709999997" blue="0.93725490199999995" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Q3u-kG-tdo" firstAttribute="height" secondItem="WXn-c1-8zB" secondAttribute="height" id="35n-nZ-jbT"/>
+                            <constraint firstItem="agv-43-CYT" firstAttribute="top" secondItem="P2m-5h-W3j" secondAttribute="bottom" constant="17" id="59M-sQ-jd8"/>
                             <constraint firstItem="Q3u-kG-tdo" firstAttribute="leading" secondItem="gZf-PJ-yX9" secondAttribute="leading" id="5YI-YV-IpU"/>
                             <constraint firstItem="WXn-c1-8zB" firstAttribute="leading" secondItem="gZf-PJ-yX9" secondAttribute="leading" id="6cz-Lx-1cN"/>
+                            <constraint firstItem="agv-43-CYT" firstAttribute="trailing" secondItem="xu2-QX-YeZ" secondAttribute="trailing" id="74S-FV-ZJc"/>
+                            <constraint firstItem="P2m-5h-W3j" firstAttribute="top" secondItem="xu2-QX-YeZ" secondAttribute="bottom" constant="23" id="9CW-dg-Jrz"/>
+                            <constraint firstItem="P2m-5h-W3j" firstAttribute="leading" secondItem="xu2-QX-YeZ" secondAttribute="leading" id="A6v-yv-eKE"/>
                             <constraint firstItem="Q3u-kG-tdo" firstAttribute="trailing" secondItem="gZf-PJ-yX9" secondAttribute="trailing" id="CzL-tz-wL9"/>
                             <constraint firstItem="nYM-HL-R7f" firstAttribute="top" secondItem="WXn-c1-8zB" secondAttribute="bottom" constant="15" id="EYA-Jb-xqR"/>
                             <constraint firstItem="xu2-QX-YeZ" firstAttribute="leading" secondItem="Q3u-kG-tdo" secondAttribute="leading" id="Fu2-uG-AQA"/>
@@ -68,9 +86,11 @@
                             <constraint firstItem="Q3u-kG-tdo" firstAttribute="top" secondItem="nYM-HL-R7f" secondAttribute="bottom" constant="8" id="SlL-x6-MVk"/>
                             <constraint firstItem="nYM-HL-R7f" firstAttribute="trailing" secondItem="gZf-PJ-yX9" secondAttribute="trailing" id="dUk-bI-3Ph"/>
                             <constraint firstItem="gZf-PJ-yX9" firstAttribute="leading" secondItem="VcF-ha-bfc" secondAttribute="leading" constant="20" id="icN-tK-vOu"/>
+                            <constraint firstItem="P2m-5h-W3j" firstAttribute="trailing" secondItem="xu2-QX-YeZ" secondAttribute="trailing" id="jqk-Bx-svy"/>
                             <constraint firstItem="gZf-PJ-yX9" firstAttribute="top" secondItem="VcF-ha-bfc" secondAttribute="top" constant="40" id="mDa-US-9Sm"/>
                             <constraint firstItem="VcF-ha-bfc" firstAttribute="trailing" secondItem="gZf-PJ-yX9" secondAttribute="trailing" constant="20" id="mbx-35-vB7"/>
                             <constraint firstItem="WXn-c1-8zB" firstAttribute="top" secondItem="gZf-PJ-yX9" secondAttribute="bottom" constant="8" id="nqf-7M-KGa"/>
+                            <constraint firstItem="agv-43-CYT" firstAttribute="leading" secondItem="xu2-QX-YeZ" secondAttribute="leading" id="pbZ-ta-V31"/>
                             <constraint firstItem="nYM-HL-R7f" firstAttribute="leading" secondItem="gZf-PJ-yX9" secondAttribute="leading" id="zbt-6r-pH5"/>
                             <constraint firstItem="xu2-QX-YeZ" firstAttribute="top" secondItem="Q3u-kG-tdo" secondAttribute="bottom" constant="61" id="zey-Pi-goS"/>
                         </constraints>

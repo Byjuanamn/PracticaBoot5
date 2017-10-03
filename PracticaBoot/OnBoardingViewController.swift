@@ -57,6 +57,23 @@ class OnBoardingViewController: UIViewController {
         }
     }
     
+    private func login() {
+        
+        Auth.auth().signIn(withEmail: emailTxt.text!, password: passwordTtx.text!) { (user, error) in
+            if let error = error {
+                print("Tenemos un error \(error.localizedDescription)")
+            }
+            
+            if user != nil {
+                self.performSegue(withIdentifier: "GotoMain", sender: nil)
+            }
+        }
+    }
+    
+    private func logout() {
+        try! Auth.auth().signOut()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -68,7 +85,34 @@ class OnBoardingViewController: UIViewController {
     */
     @IBAction func createNewAccountAction(_ sender: Any) {
         self.createAccount()
-        
+    }
+    
+    @IBAction func loginAction(_ sender: Any) {
+        self.login()
+    }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        self.logout()
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
