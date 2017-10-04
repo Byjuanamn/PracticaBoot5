@@ -28,9 +28,18 @@ class PostReview: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.downloadObject()
+        self.synchronizeViewWithModel()
     }
 
+    private func synchronizeViewWithModel() {
+        guard let post = self.post else {
+            return
+        }
+        self.postTxt.text = post.description
+        self.titleTxt.text = post.title
+        self.downloadObject(post.photo)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,13 +58,10 @@ class PostReview: UIViewController {
     }
     
     // MARK: Descarga
-    private func downloadObject() {
+    private func downloadObject(_ urlString: String) {
         
-        // url temporan
-        let urlTemp = "https://firebasestorage.googleapis.com/v0/b/fbdata-63fb3.appspot.com/o/imgposts%2FACEA3400-B9AD-4422-85F7-24A6C9FBDEC7.jpg?alt=media&token=194b9d30-7d43-4681-847a-d656a7624513"
-        let storageRef = storage.reference(forURL: urlTemp)
         
-//        let fileRef = storageRef.child("ACEA3400-B9AD-4422-85F7-24A6C9FBDEC7.jpg")
+        let storageRef = storage.reference(forURL: urlString)
         
         taskDownnLoad = storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
             if error != nil {

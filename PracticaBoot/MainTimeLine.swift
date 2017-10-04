@@ -21,6 +21,14 @@ class MainTimeLine: UITableViewController {
 
         self.refreshControl?.addTarget(self, action: #selector(hadleRefresh(_:)), for: UIControlEvents.valueChanged)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadAllPosts()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.postsRefence.removeAllObservers()
+    }
     
     @objc func hadleRefresh(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()

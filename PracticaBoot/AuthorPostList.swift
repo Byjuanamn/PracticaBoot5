@@ -22,9 +22,7 @@ class AuthorPostList: UITableViewController {
         super.viewDidLoad()
 
         self.refreshControl?.addTarget(self, action: #selector(hadleRefresh(_:)), for: UIControlEvents.valueChanged)
-        
-    
-        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +37,8 @@ class AuthorPostList: UITableViewController {
     }
 
     private func loadAllPosts() {
-        postsRefence.queryLimited(toFirst: 10).observe(.value) { (snapShot) in
+        postsRefence.queryOrdered(byChild: "owner").queryEqual(toValue: Auth.auth().currentUser?.uid)
+        .observe(.value) { (snapShot) in
             var items: [Posts] = []
             
             for item in snapShot.children {
@@ -85,6 +84,8 @@ class AuthorPostList: UITableViewController {
         
         let publish = UITableViewRowAction(style: .normal, title: "Publicar") { (action, indexPath) in
             // Codigo para publicar el post
+            let currentPost = self.model[indexPath.row]
+            currentPost.postRef?.updateChildValues(["isvisible" : true])
         }
         publish.backgroundColor = UIColor.green
         let deleteRow = UITableViewRowAction(style: .destructive, title: "Eliminar") { (action, indexPath) in

@@ -14,12 +14,14 @@ struct Posts {
     let title : String
     let description : String
     let isVisible: Bool
+    let photo: String
     var postRef : DatabaseReference?
     
-    init(title: String, description: String, isVisible: Bool = false) {
+    init(title: String, description: String, isVisible: Bool = false, photo: String) {
         self.title = title
         self.description = description
         self.isVisible = isVisible
+        self.photo = photo
         self.postRef = nil
     }
     
@@ -28,6 +30,7 @@ struct Posts {
         self.title = item["title"] as! String
         self.description = item["description"] as! String
         self.isVisible = item["isvisible"] as! Bool
+        self.photo = item["photo"] as! String
         self.postRef = snapShot.ref
     }
 }
