@@ -57,6 +57,7 @@ class OnBoardingViewController: UIViewController {
     
     
     private func createAccount() {
+        Analytics.logEvent("Create_Account", parameters: ["metodo" : "mail-password"])
         Auth.auth().createUser(withEmail: emailTxt.text!,
                                password: passwordTtx.text!) { (user, error) in
                                 
@@ -69,6 +70,7 @@ class OnBoardingViewController: UIViewController {
                                     // validar el mail del nuevo usuario
                                     
                                     user?.sendEmailVerification(completion: { (error) in
+                                        Analytics.logEvent("Send_email_verification", parameters: nil)
                                         if let error = error {
                                             print(error.localizedDescription)
                                         }
@@ -79,7 +81,7 @@ class OnBoardingViewController: UIViewController {
     }
     
     private func login() {
-        
+        Analytics.logEvent("User_Login", parameters: ["metodo" : "mail-password"])
         Auth.auth().signIn(withEmail: emailTxt.text!, password: passwordTtx.text!) { (user, error) in
             if let error = error {
                 print("Tenemos un error \(error.localizedDescription)")
@@ -92,6 +94,7 @@ class OnBoardingViewController: UIViewController {
     }
     
     private func logout() {
+        Analytics.logEvent("User_Logout", parameters: nil)
         try! Auth.auth().signOut()
     }
     
