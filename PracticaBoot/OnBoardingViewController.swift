@@ -21,7 +21,7 @@ class OnBoardingViewController: UIViewController {
         
         if self.isUserLogin() {
             // saltar al siguiente viewController
-//            self.nextViewControllerSegue()
+            self.nextViewControllerSegue()
             
         } else {
             self.osbserverUserActivity()

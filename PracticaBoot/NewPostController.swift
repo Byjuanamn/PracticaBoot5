@@ -42,12 +42,18 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
 
     @IBAction func savePostInCloud(_ sender: Any) {
+        
+        // primero subimos el objeto
+        self.uploadFrom(buffer: UIImageJPEGRepresentation(self.imageCaptured, 0.5)!)
+        
+        
         // preparado para implementar codigo que persita en el cloud
-        let newPost: [String : Any] = ["title" : titlePostTxt.text, "description" : textPostTxt.text]
         
-        let newPostFb = postsReference.childByAutoId()
-        
-        newPostFb.setValue(newPost)
+//        let newPost: [String : Any] = ["title" : titlePostTxt.text, "description" : textPostTxt.text]
+//
+//        let newPostFb = postsReference.childByAutoId()
+//
+//        newPostFb.setValue(newPost)
         
     }
     
@@ -110,6 +116,25 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
         self.present(picker, animated: true, completion: nil)
     }
 
+    // MARK: - Storage methods
+    
+    private func uploadFrom(buffer: Data){
+        let storage = Storage.storage()
+        let storageRef = storage.reference().child("imgposts")
+        
+        let fileRef = storageRef.child("imagen1.jpg")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        let uploadTask = fileRef.putData(buffer, metadata: metadata) { (metaEnd, error) in
+            if error != nil {
+                print("Error en la subida")
+            } else {
+                print("Parece que ha ido bien")
+            }
+        }
+    }
+    
+    
 }
 
 // MARK: - Delegado del imagepicker
