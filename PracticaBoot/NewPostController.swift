@@ -49,17 +49,19 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBAction func savePostInCloud(_ sender: Any) {
         
         // primero subimos el objeto
-        self.uploadFrom(buffer: UIImageJPEGRepresentation(self.imageCaptured, 0.5)!)
-        
-        
-        // preparado para implementar codigo que persita en el cloud
-        
-//        let newPost: [String : Any] = ["title" : titlePostTxt.text, "description" : textPostTxt.text]
-//
-//        let newPostFb = postsReference.childByAutoId()
-//
-//        newPostFb.setValue(newPost)
-        
+        var newPost: [String : Any] = ["title" : titlePostTxt.text!,
+                                       "description" : textPostTxt.text!,
+                                       "owner" : Auth.auth().currentUser?.uid]
+        self.uploadFrom(buffer: UIImageJPEGRepresentation(self.imageCaptured, 0.5)!) {
+            (url) in
+            if url != nil {
+                newPost["photo"] = url.absoluteString
+            }
+            //         preparado para implementar codigo que persita en el cloud
+            let newPostFb = self.postsReference.childByAutoId()
+            newPostFb.setValue(newPost)
+
+        }
     }
     
     @IBAction func newPostInFB(_ sender: Any) {
@@ -123,12 +125,14 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     // MARK: - Storage methods
     
-    private func uploadFrom(buffer: Data){
+    private func uploadFrom(buffer: Data, complete: @escaping (_: URL!) -> Void) {
         
         
-        let fileRef = storageRef.child("imagen1.jpg")
+        let fileRef = storageRef.child(UUID().uuidString + ".jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
+        
+        
         uploadTask = fileRef.putData(buffer, metadata: metadata) { (metaEnd, error) in
             if error != nil {
                 print("Error en la subida")
@@ -138,6 +142,16 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
             print("Parece que ha ido bien")
             self.progresView.progress = 0.0
             self.deleteSuccessObserver()
+            
+            fileRef.downloadURL(completion: { (url, error) in
+                if error != nil {
+                    print("tenemos un error en la generacion de la URL")
+                } else {
+                    print(url?.absoluteString ?? "VACIA")
+                    complete(url)
+                }
+            })
+            
         })
         
         uploadTask?.observe(.progress, handler: { (snapshot) in
