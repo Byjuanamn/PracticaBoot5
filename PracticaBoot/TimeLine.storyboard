@@ -295,10 +295,18 @@
                                     <action selector="rateAction:" destination="RLF-Vz-fF2" eventType="valueChanged" id="c8Q-VX-3DO"/>
                                 </connections>
                             </slider>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S5o-jw-gsu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="4"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="Q8H-te-Isl"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="zFy-Zq-mtb" secondAttribute="trailing" id="0sg-qS-3g5"/>
+                            <constraint firstItem="S5o-jw-gsu" firstAttribute="leading" secondItem="K7J-vm-gBF" secondAttribute="leading" id="2em-lm-jUD"/>
                             <constraint firstItem="agU-H1-t3M" firstAttribute="trailing" secondItem="IA7-P1-d4v" secondAttribute="trailing" id="3xx-qK-0QT"/>
                             <constraint firstItem="Rhq-Yv-MHe" firstAttribute="trailing" secondItem="K7J-vm-gBF" secondAttribute="trailingMargin" id="5Fp-G6-xcU"/>
                             <constraint firstItem="agU-H1-t3M" firstAttribute="top" secondItem="IA7-P1-d4v" secondAttribute="bottom" constant="18.5" id="7RP-JR-Ja1"/>
@@ -314,8 +322,10 @@
                             <constraint firstItem="PMD-nw-9gX" firstAttribute="top" secondItem="zFy-Zq-mtb" secondAttribute="bottom" constant="30" id="cna-ry-mcd"/>
                             <constraint firstItem="ibJ-OG-dyg" firstAttribute="trailing" secondItem="t7x-TB-4tM" secondAttribute="trailing" id="fLT-Ef-IT7"/>
                             <constraint firstItem="IA7-P1-d4v" firstAttribute="leading" secondItem="ibJ-OG-dyg" secondAttribute="leading" id="kj0-IW-NRE"/>
+                            <constraint firstItem="S5o-jw-gsu" firstAttribute="top" secondItem="Sx0-PK-lHo" secondAttribute="bottom" id="q4W-ci-RK9"/>
                             <constraint firstItem="ibJ-OG-dyg" firstAttribute="leading" secondItem="t7x-TB-4tM" secondAttribute="leading" id="vxk-es-vUB"/>
                             <constraint firstItem="t7x-TB-4tM" firstAttribute="top" secondItem="Sx0-PK-lHo" secondAttribute="bottom" constant="20" id="wGd-Dt-8dE"/>
+                            <constraint firstAttribute="trailing" secondItem="S5o-jw-gsu" secondAttribute="trailing" id="xg9-Ea-D19"/>
                             <constraint firstItem="Rhq-Yv-MHe" firstAttribute="leading" secondItem="K7J-vm-gBF" secondAttribute="leadingMargin" id="z9z-90-eYF"/>
                         </constraints>
                     </view>
@@ -329,6 +339,7 @@
                     <connections>
                         <outlet property="imagePost" destination="Rhq-Yv-MHe" id="79k-8c-Nia"/>
                         <outlet property="postTxt" destination="agU-H1-t3M" id="zf2-6l-bYM"/>
+                        <outlet property="progressView" destination="S5o-jw-gsu" id="1Et-Y5-XAc"/>
                         <outlet property="rateSlider" destination="zFy-Zq-mtb" id="Reg-r8-Laq"/>
                         <outlet property="titleTxt" destination="ibJ-OG-dyg" id="9P0-BP-a87"/>
                     </connections>
