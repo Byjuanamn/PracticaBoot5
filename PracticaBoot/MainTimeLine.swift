@@ -7,31 +7,41 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTimeLine: UITableViewController {
 
-    var model = ["post1", "post2"]
+    var model: [Posts] = []
     let cellIdentier = "POSTSCELL"
+    
+     let postsRefence = Database.database().reference(withPath:"posts")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.refreshControl?.addTarget(self, action: #selector(hadleRefresh(_:)), for: UIControlEvents.valueChanged)
     }
     
     @objc func hadleRefresh(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Cargar todos los posts publicados
+    private func loadAllPosts() {
+        postsRefence.queryOrdered(byChild: "isvisible")
+            .queryEqual(toValue: true).observe(.value) { (snapShot) in
+            var items: [Posts] = []
+            
+            for item in snapShot.children {
+                let post = Posts(snapShot: item as! DataSnapshot)
+                items.append(post!)
+            }
+            
+            self.model = items
+            self.tableView.reloadData()
+        }
     }
-
+   
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +58,8 @@ class MainTimeLine: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentier, for: indexPath)
 
-        cell.textLabel?.text = model[indexPath.row]
+        let post = model[indexPath.row]
+        cell.textLabel?.text = post.title
 
         return cell
     }
@@ -60,13 +71,14 @@ class MainTimeLine: UITableViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
         if segue.identifier == "ShowRatingPost" {
-            _ = segue.destination as! PostReview
+            let nextVC = segue.destination as! PostReview
             // aqui pasamos el item selecionado
+            let indexPath = sender as? IndexPath
+            nextVC.post = model[(indexPath?.row)!]
         }
     }
 

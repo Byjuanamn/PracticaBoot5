@@ -51,6 +51,7 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
         // primero subimos el objeto
         var newPost: [String : Any] = ["title" : titlePostTxt.text!,
                                        "description" : textPostTxt.text!,
+                                       "isvisible" : false,
                                        "owner" : Auth.auth().currentUser?.uid]
         self.uploadFrom(buffer: UIImageJPEGRepresentation(self.imageCaptured, 0.5)!) {
             (url) in

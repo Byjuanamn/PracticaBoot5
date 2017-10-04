@@ -9,26 +9,6 @@
 import UIKit
 import Firebase
 
-struct Posts {
-    
-    let title : String
-    let description : String
-    var postRef : DatabaseReference?
-    
-    init(title: String, description: String) {
-        self.title = title
-        self.description = description
-        self.postRef = nil
-    }
-    
-    init?(snapShot: DataSnapshot) {
-        guard let item = snapShot.value as? [String:Any] else { return nil }
-        self.title = item["title"] as! String
-        self.description = item["description"] as! String
-        self.postRef = snapShot.ref
-    }
-}
-
 
 class AuthorPostList: UITableViewController {
 

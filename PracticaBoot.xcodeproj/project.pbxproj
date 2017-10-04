@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B6F9E301F85902C00BFF761 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F9E2F1F85902C00BFF761 /* Posts.swift */; };
 		5B9209871F8438660001D2AB /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9209861F8438660001D2AB /* OnBoarding.storyboard */; };
 		5B9209891F8439E30001D2AB /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9209881F8439E30001D2AB /* OnBoardingViewController.swift */; };
 		5BE4EAC31F842141005036DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BE4EAC21F84213A005036DE /* GoogleService-Info.plist */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		2635E234360D457610905930 /* Pods-PracticaBoot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticaBoot.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticaBoot/Pods-PracticaBoot.release.xcconfig"; sourceTree = "<group>"; };
+		5B6F9E2F1F85902C00BFF761 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		5B9209861F8438660001D2AB /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
 		5B9209881F8439E30001D2AB /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		5BE4EAC21F84213A005036DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B6F9E2E1F85901100BFF761 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B6F9E2F1F85902C00BFF761 /* Posts.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		5D931CD91E83EEEA005051E9 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		5D931CE41E83EEEA005051E9 /* PracticaBoot */ = {
 			isa = PBXGroup;
 			children = (
+				5B6F9E2E1F85901100BFF761 /* Models */,
 				5D931CF71E83F069005051E9 /* AppDelegate */,
 				5D931CF81E83F076005051E9 /* ViewControllers */,
 				5D931CF91E83F087005051E9 /* Storyboards */,
@@ -285,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D931D051E83F773005051E9 /* AuthorPostList.swift in Sources */,
+				5B6F9E301F85902C00BFF761 /* Posts.swift in Sources */,
 				5D931CE61E83EEEA005051E9 /* AppDelegate.swift in Sources */,
 				5D931D031E83F67C005051E9 /* PostReview.swift in Sources */,
 				5B9209891F8439E30001D2AB /* OnBoardingViewController.swift in Sources */,

@@ -22,6 +22,8 @@ class PostReview: UIViewController {
     let storage = Storage.storage()
     var taskDownnLoad: StorageDownloadTask?
     
+    var post: Posts?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
