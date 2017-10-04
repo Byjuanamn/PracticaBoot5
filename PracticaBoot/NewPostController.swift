@@ -15,6 +15,7 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var titlePostTxt: UITextField!
     @IBOutlet weak var textPostTxt: UITextField!
     @IBOutlet weak var imagePost: UIImageView!
+    @IBOutlet weak var progresView: UIProgressView!
     
     var isReadyToPublish: Bool = false
     var imageCaptured: UIImage! {
@@ -23,6 +24,10 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     }
     let postsReference = Database.database().reference(withPath: "posts")
+    
+    let storageRef = Storage.storage().reference().child("imgposts")
+    var uploadTask: StorageUploadTask?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,22 +124,34 @@ class NewPostController: UIViewController, UIImagePickerControllerDelegate, UINa
     // MARK: - Storage methods
     
     private func uploadFrom(buffer: Data){
-        let storage = Storage.storage()
-        let storageRef = storage.reference().child("imgposts")
+        
         
         let fileRef = storageRef.child("imagen1.jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
-        let uploadTask = fileRef.putData(buffer, metadata: metadata) { (metaEnd, error) in
+        uploadTask = fileRef.putData(buffer, metadata: metadata) { (metaEnd, error) in
             if error != nil {
                 print("Error en la subida")
-            } else {
-                print("Parece que ha ido bien")
             }
         }
+        uploadTask?.observe(.success, handler: { (snapshot) in
+            print("Parece que ha ido bien")
+            self.progresView.progress = 0.0
+            self.deleteSuccessObserver()
+        })
+        
+        uploadTask?.observe(.progress, handler: { (snapshot) in
+            print(snapshot.progress?.completedUnitCount ?? "sin datos")
+            let percentComplete = 100.0 *
+                Double((snapshot.progress?.completedUnitCount)!) / Double((snapshot.progress?.totalUnitCount)!)
+            self.progresView.progress = Float(percentComplete)
+        })
+        
     }
     
-    
+    private func deleteSuccessObserver() {
+        
+    }
 }
 
 // MARK: - Delegado del imagepicker

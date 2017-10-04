@@ -158,12 +158,19 @@
                                     <action selector="newPostInFB:" destination="Itr-Rl-A1y" eventType="touchUpInside" id="yXU-0k-WD5"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YLP-ZG-9uZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="5u7-mk-qub"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hfI-rb-XXj" firstAttribute="trailing" secondItem="dId-mV-sZu" secondAttribute="trailing" id="6cm-zI-9Cl"/>
                             <constraint firstItem="hfI-rb-XXj" firstAttribute="leading" secondItem="dId-mV-sZu" secondAttribute="leading" id="6vJ-Mw-QHQ"/>
                             <constraint firstItem="Q4q-Wo-vUh" firstAttribute="leading" secondItem="dId-mV-sZu" secondAttribute="leading" id="CDI-Oq-uIm"/>
+                            <constraint firstAttribute="trailing" secondItem="YLP-ZG-9uZ" secondAttribute="trailing" id="CgF-ks-DPp"/>
                             <constraint firstItem="Tbd-tI-Ip8" firstAttribute="leading" secondItem="Uyp-v1-iTO" secondAttribute="trailing" constant="41" id="FMP-ou-Lgf"/>
                             <constraint firstItem="WvL-11-TYV" firstAttribute="top" secondItem="hfI-rb-XXj" secondAttribute="bottom" constant="18" id="G4k-X7-0kk"/>
                             <constraint firstItem="M8z-ex-o2m" firstAttribute="leading" secondItem="KWB-rI-14l" secondAttribute="leadingMargin" id="HgF-ge-AkI"/>
@@ -182,7 +189,9 @@
                             <constraint firstItem="6PB-d5-igQ" firstAttribute="leading" secondItem="Tbd-tI-Ip8" secondAttribute="trailing" constant="75" id="m8e-kR-qgA"/>
                             <constraint firstItem="dId-mV-sZu" firstAttribute="top" secondItem="cTT-H6-D0y" secondAttribute="bottom" constant="40" id="oF8-0u-WRH"/>
                             <constraint firstItem="6PB-d5-igQ" firstAttribute="top" secondItem="WvL-11-TYV" secondAttribute="bottom" constant="39.5" id="oeL-Zc-ZTm"/>
+                            <constraint firstItem="YLP-ZG-9uZ" firstAttribute="top" secondItem="cTT-H6-D0y" secondAttribute="bottom" id="okz-cz-4yO"/>
                             <constraint firstItem="WvL-11-TYV" firstAttribute="leading" secondItem="hfI-rb-XXj" secondAttribute="leading" id="tcf-AL-3ba"/>
+                            <constraint firstItem="YLP-ZG-9uZ" firstAttribute="leading" secondItem="KWB-rI-14l" secondAttribute="leading" id="u35-dG-K0y"/>
                             <constraint firstItem="Fmi-pa-Jco" firstAttribute="top" secondItem="M8z-ex-o2m" secondAttribute="bottom" id="yCy-mc-BqZ"/>
                             <constraint firstItem="Q4q-Wo-vUh" firstAttribute="top" secondItem="dId-mV-sZu" secondAttribute="bottom" constant="18" id="yQr-DI-ASb"/>
                             <constraint firstItem="M8z-ex-o2m" firstAttribute="top" secondItem="Uyp-v1-iTO" secondAttribute="bottom" constant="32" id="ycM-EC-H0b"/>
@@ -204,6 +213,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imagePost" destination="M8z-ex-o2m" id="wjb-5d-bKt"/>
+                        <outlet property="progresView" destination="YLP-ZG-9uZ" id="ZXI-WC-aMN"/>
                         <outlet property="textPostTxt" destination="WvL-11-TYV" id="aKg-ek-ECE"/>
                         <outlet property="titlePostTxt" destination="Q4q-Wo-vUh" id="xJf-xi-iaq"/>
                     </connections>

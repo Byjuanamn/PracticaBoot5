@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PracticaBoot/NewPostController.swift"
-            timestampString = "528840319.018753"
+            timestampString = "528841374.128109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "newPostInFB(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PracticaBoot/OnBoardingViewController.swift"
-            timestampString = "528840319.018882"
+            timestampString = "528841374.128641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PracticaBoot/OnBoardingViewController.swift"
-            timestampString = "528840319.019515"
+            timestampString = "528841374.129116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PracticaBoot/OnBoardingViewController.swift"
-            timestampString = "528840319.020095"
+            timestampString = "528841374.129565"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -74,23 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PracticaBoot/OnBoardingViewController.swift"
-            timestampString = "528840319.020721"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PracticaBoot/OnBoardingViewController.swift"
-            timestampString = "528840319.021215"
+            timestampString = "528841374.129972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -106,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PracticaBoot/OnBoardingViewController.swift"
-            timestampString = "528840319.021654"
+            timestampString = "528841374.130491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
@@ -122,29 +106,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PracticaBoot/NewPostController.swift"
-            timestampString = "528840319.022082"
+            timestampString = "528841374.130925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "uploadFrom(buffer:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PracticaBoot/NewPostController.swift"
-            timestampString = "528840319.022147"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "uploadFrom(buffer:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PracticaBoot.NewPostController.(uploadFrom in _FCAF9A0146ADCB55DB0ADFD841F30F5C)(buffer: Foundation.Data) -&gt; ()"
+                  moduleName = "PracticaBoot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/byjuanamn/Documents/CloudStation/Formacio%CC%81n/Boot5/plantilla%20proyecto/PracticaBoot5/PracticaBoot/NewPostController.swift"
+                  timestampString = "528841374.264853"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "1101">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__ObjC.StorageTaskSnapshot) -&gt; () in PracticaBoot.NewPostController.(uploadFrom in _FCAF9A0146ADCB55DB0ADFD841F30F5C)(buffer: Foundation.Data) -&gt; ()"
+                  moduleName = "PracticaBoot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/byjuanamn/Documents/CloudStation/Formacio%CC%81n/Boot5/plantilla%20proyecto/PracticaBoot5/PracticaBoot/NewPostController.swift"
+                  timestampString = "528841374.267727"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "369">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
